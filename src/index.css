@@ -6,24 +6,28 @@
   font-weight: 100;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINE Seed TH';
   src: url('./assets/fonts/LINESeedSansTH_W_Rg.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINE Seed TH';
   src: url('./assets/fonts/LINESeedSansTH_W_Bd.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINE Seed TH';
   src: url('./assets/fonts/LINESeedSansTH_W_XBd.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'LINE Seed TH';
   src: url('./assets/fonts/LINESeedSansTH_W_He.woff2') format('woff2');
@@ -35,6 +39,14 @@
   --font-sans: 'LINE Seed TH', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-body {
+body,
+button,
+input,
+textarea,
+select {
   font-family: var(--font-sans);
+}
+
+* {
+  font-family: 'LINE Seed TH', sans-serif;
 }

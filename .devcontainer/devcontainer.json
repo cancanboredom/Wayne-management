@@ -1,0 +1,24 @@
+{
+    "name": "Wayne Duty Management",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next"
+            ]
+        }
+    },
+    "forwardPorts": [
+        3000
+    ],
+    "portsAttributes": {
+        "3000": {
+            "label": "App Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "npm install && (cp .env.example .env.local || true)",
+    "remoteUser": "node"
+}

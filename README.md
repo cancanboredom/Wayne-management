@@ -1,5 +1,8 @@
 # 📋 Duty Management System
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Oat9898/Wayne-management)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Oat9898/Wayne-management)
+
 A web-based duty/shift scheduling application built with React, TypeScript, and Express.
 
 ## ✨ Features

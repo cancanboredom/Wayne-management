@@ -1,0 +1,11 @@
+tasks:
+  - init: npm install && (cp .env.example .env.local || true)
+    command: npm run dev
+ports:
+  - port: 3000
+    onOpen: notify
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - ms-vscode.vscode-typescript-next

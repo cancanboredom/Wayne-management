@@ -3,11 +3,22 @@
 All notable changes to the **Duty Management System** are documented here.  
 Each entry includes: **what changed**, **who did it**, **version (commit)**, and **what it was based on**.
 
+> 💡 **Want to revert?** Click the **📥 Download ZIP** link next to any version to download that exact version of the project.
+
 ---
 
-## [072a115] — 2026-02-28
+## [76f8474](https://github.com/cancanboredom/Wayne-management/tree/76f8474) — 2026-02-28 &nbsp; [📥 Download ZIP](https://github.com/cancanboredom/Wayne-management/archive/76f8474.zip)
 **Author:** cancanboredom  
-**Based on:** d35793d  
+**Based on:** [072a115](https://github.com/cancanboredom/Wayne-management/tree/072a115)  
+
+### Changes
+- Added CHANGELOG.md and Recent Updates section to README
+
+---
+
+## [072a115](https://github.com/cancanboredom/Wayne-management/tree/072a115) — 2026-02-28 &nbsp; [📥 Download ZIP](https://github.com/cancanboredom/Wayne-management/archive/072a115.zip)
+**Author:** cancanboredom  
+**Based on:** [d35793d](https://github.com/cancanboredom/Wayne-management/tree/d35793d)  
 
 ### Changes
 - Improved LINE Seed TH font typography: added letter-spacing, line-height, word-spacing, and font smoothing for a more proportionate and readable look
@@ -15,18 +26,18 @@ Each entry includes: **what changed**, **who did it**, **version (commit)**, and
 
 ---
 
-## [d35793d] — 2026-02-28
+## [d35793d](https://github.com/cancanboredom/Wayne-management/tree/d35793d) — 2026-02-28 &nbsp; [📥 Download ZIP](https://github.com/cancanboredom/Wayne-management/archive/d35793d.zip)
 **Author:** cancanboredom  
-**Based on:** 6b1542a  
+**Based on:** [6b1542a](https://github.com/cancanboredom/Wayne-management/tree/6b1542a)  
 
 ### Changes
 - Added Interactive Change Review feature to `Upload to GitHub.bat` (review files one by one before uploading)
 
 ---
 
-## [6b1542a] — 2026-02-28
+## [6b1542a](https://github.com/cancanboredom/Wayne-management/tree/6b1542a) — 2026-02-28 &nbsp; [📥 Download ZIP](https://github.com/cancanboredom/Wayne-management/archive/6b1542a.zip)
 **Author:** cancanboredom  
-**Based on:** 5fd003a  
+**Based on:** [5fd003a](https://github.com/cancanboredom/Wayne-management/tree/5fd003a)  
 
 ### Changes
 - Added one-click collaborative setup (GitHub Codespaces and Gitpod badges)
@@ -34,7 +45,7 @@ Each entry includes: **what changed**, **who did it**, **version (commit)**, and
 
 ---
 
-## [5fd003a] — 2026-02-28
+## [5fd003a](https://github.com/cancanboredom/Wayne-management/tree/5fd003a) — 2026-02-28 &nbsp; [📥 Download ZIP](https://github.com/cancanboredom/Wayne-management/archive/5fd003a.zip)
 **Author:** cancanboredom  
 **Based on:** — (Initial)  
 

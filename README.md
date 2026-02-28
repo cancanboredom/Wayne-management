@@ -9,14 +9,15 @@ A web-based duty/shift scheduling application built with React, TypeScript, and 
 
 ## 📝 Recent Updates
 
-> See the full update log in [**CHANGELOG.md**](./CHANGELOG.md) — includes what changed, who did it, which version, and what it was based on.
+> See the full update log in [**CHANGELOG.md**](./CHANGELOG.md) — includes what changed, who did it, which version, and what it was based on.  
+> 💡 Click on a version to browse the code, or **📥 Download** to get that version as a ZIP.
 
-| Version | Date | Author | Summary |
-|---------|------|--------|---------|
-| `072a115` | 2026-02-28 | cancanboredom | Improved font typography (spacing, line-height, smoothing) |
-| `d35793d` | 2026-02-28 | cancanboredom | Added Interactive Change Review to Upload script |
-| `6b1542a` | 2026-02-28 | cancanboredom | Added GitHub Codespaces & Gitpod support |
-| `5fd003a` | 2026-02-28 | cancanboredom | Initial commit — full app with LINE Seed TH font |
+| Version | Date | Author | Summary | Revert |
+|---------|------|--------|---------|--------|
+| [`072a115`](https://github.com/cancanboredom/Wayne-management/tree/072a115) | 2026-02-28 | cancanboredom | Improved font typography (spacing, line-height, smoothing) | [📥 Download](https://github.com/cancanboredom/Wayne-management/archive/072a115.zip) |
+| [`d35793d`](https://github.com/cancanboredom/Wayne-management/tree/d35793d) | 2026-02-28 | cancanboredom | Added Interactive Change Review to Upload script | [📥 Download](https://github.com/cancanboredom/Wayne-management/archive/d35793d.zip) |
+| [`6b1542a`](https://github.com/cancanboredom/Wayne-management/tree/6b1542a) | 2026-02-28 | cancanboredom | Added GitHub Codespaces & Gitpod support | [📥 Download](https://github.com/cancanboredom/Wayne-management/archive/6b1542a.zip) |
+| [`5fd003a`](https://github.com/cancanboredom/Wayne-management/tree/5fd003a) | 2026-02-28 | cancanboredom | Initial commit — full app with LINE Seed TH font | [📥 Download](https://github.com/cancanboredom/Wayne-management/archive/5fd003a.zip) |
 
 ---
 

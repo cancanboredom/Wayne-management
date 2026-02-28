@@ -5,6 +5,22 @@
 
 A web-based duty/shift scheduling application built with React, TypeScript, and Express.
 
+---
+
+## 📝 Recent Updates
+
+> See the full update log in [**CHANGELOG.md**](./CHANGELOG.md) — includes what changed, who did it, which version, and what it was based on.
+
+| Version | Date | Author | Summary |
+|---------|------|--------|---------|
+| `072a115` | 2026-02-28 | cancanboredom | Improved font typography (spacing, line-height, smoothing) |
+| `d35793d` | 2026-02-28 | cancanboredom | Added Interactive Change Review to Upload script |
+| `6b1542a` | 2026-02-28 | cancanboredom | Added GitHub Codespaces & Gitpod support |
+| `5fd003a` | 2026-02-28 | cancanboredom | Initial commit — full app with LINE Seed TH font |
+
+---
+
+
 ## ✨ Features
 
 - Monthly shift calendar with drag & drop assignment

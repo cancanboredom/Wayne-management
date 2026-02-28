@@ -1,0 +1,7 @@
+{
+  "name": "Duty Management System",
+  "description": "Interactive shift and duty management system with holiday integration and schedule optimization.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

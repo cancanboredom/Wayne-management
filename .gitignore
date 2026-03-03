@@ -1,0 +1,24 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+gsap-public.zip
+
+wayne_duty.backup-*.db
+wayne_duty.db
+wayne_duty.db-shm
+wayne_duty.db-wal
+
+.agent/
+.claude/
+
+# local backup snapshots / archives (do not publish)
+Wayne-management-5.1/
+Oat_version_21_12/
+Oat version 18.33/
+LEGACY/
+*.zip

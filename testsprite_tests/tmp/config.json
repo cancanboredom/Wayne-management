@@ -1,0 +1,17 @@
+{
+  "status": "init",
+  "type": "frontend",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "Wayne-management-4.0.0",
+    "projectPath": "/Users/cancaneus_/Desktop/Wayne-management-4.0.0",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-G0G-ebiIsxChzuXYRtBVV0SoBPJ000rgNzz3hfdtfFhxfX_EVFBqloJt6Uvy_IhHMyiGlIWdCrpyRnnjO81-YIiRjRPvmSfKBaaWmNFF3pxB33DyBskwMyLbIOv0mD2nbEI"
+    }
+  },
+  "serverPort": 64955,
+  "proxy": "http://5816a447-1cd5-4c32-9c98-fec43b152077:Bd86jH7oFCcuB5Mwm1qhxgxqKCiM7Nv4@tun.testsprite.com:8080"
+}

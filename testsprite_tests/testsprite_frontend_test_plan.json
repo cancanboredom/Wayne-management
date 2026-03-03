@@ -1,0 +1,2353 @@
+[
+  {
+    "id": "TC001",
+    "title": "Load monthly calendar dashboard and confirm schedule content is visible",
+    "description": "Verifies the main monthly calendar view loads and shows shift slot labels for days in the month.",
+    "category": "Monthly Calendar View",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1A\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1B\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"2nd Call\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"3rd Call\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Navigate to next month using the right arrow",
+    "description": "Verifies month navigation forward updates the visible month on the calendar.",
+    "category": "Monthly Calendar View",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Month label\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Next month\" right arrow button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Month label\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1A\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Navigate to previous month using the left arrow",
+    "description": "Verifies month navigation backward updates the visible month on the calendar.",
+    "category": "Monthly Calendar View",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Month label\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Previous month\" left arrow button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Month label\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1B\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Open shift assignment panel by clicking a day cell",
+    "description": "Verifies selecting a day opens the shift assignment panel for that date.",
+    "category": "Monthly Calendar View",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on a visible day cell in the calendar grid"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift assignment panel\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1A\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"3rd Call\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Close shift assignment panel after opening it",
+    "description": "Verifies the shift assignment panel can be dismissed after being opened from a day cell.",
+    "category": "Monthly Calendar View",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a visible day cell in the calendar grid"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Close\" button in the shift assignment panel"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift assignment panel\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Toggle from calendar view to list view",
+    "description": "Verifies the view toggle switches from the calendar grid to a list representation of shifts.",
+    "category": "Monthly Calendar View",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"List\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"1A\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Toggle from list view back to calendar view",
+    "description": "Verifies the view toggle switches back to the monthly calendar grid after using list view.",
+    "category": "Monthly Calendar View",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"List\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the \"Calendar\" view toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Calendar grid\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Shift list\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Assign a person to a shift slot and save successfully",
+    "description": "Verifies a user can select a day, assign a person to a slot, and persist the change with a visible confirmation/state update.",
+    "category": "Shift Assignment",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Search for a person by name in the assignment panel"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saved\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Remove an existing assignment using the trash icon and save",
+    "description": "Verifies a user can clear a previously assigned person from a slot and persist the removal.",
+    "category": "Shift Assignment",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saved\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click trash icon to remove an assignment"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saved\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Switch selected day and verify the assignment panel updates to the newly selected day",
+    "description": "Verifies changing the selected calendar day updates visible assignment details (day-specific context) in the panel.",
+    "category": "Shift Assignment",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on a different calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"selected day indicator\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Search for a person by name and verify results are shown in the assignment panel",
+    "description": "Verifies the user can filter/find personnel using search before making an assignment.",
+    "category": "Shift Assignment",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Search for a person by name in the assignment panel"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"person search results list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assigned person in slot\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Attempt to save with no changes and verify the UI handles it gracefully",
+    "description": "Verifies clicking Save without making assignment changes does not break the UI and shows a clear status/confirmation.",
+    "category": "Shift Assignment",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No changes\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Invalid assignment error: UI shows validation error and does not apply assignment",
+    "description": "Verifies when an invalid person selection is attempted and the save fails, the UI displays an error and the assignment is not shown as applied.",
+    "category": "Shift Assignment",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assignment panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Search for a person by name in the assignment panel"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid person\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assigned person in slot\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Cancel out of an in-progress change by switching days before saving",
+    "description": "Verifies that unsaved changes are not incorrectly persisted when the user changes the selected day without saving.",
+    "category": "Shift Assignment",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assigned person in slot\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on a different calendar day to select it"
+      },
+      {
+        "type": "action",
+        "description": "Click on the original calendar day to select it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"assigned person in slot\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Assign to one slot, then reassign to a different person, and save",
+    "description": "Verifies updating an existing slot assignment to a new person persists correctly and reflects the latest selection.",
+    "category": "Shift Assignment",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a calendar day to select it"
+      },
+      {
+        "type": "action",
+        "description": "Search for a person by name in the assignment panel"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "action",
+        "description": "Search for a person by name in the assignment panel"
+      },
+      {
+        "type": "action",
+        "description": "Click a person to assign them to a slot"
+      },
+      {
+        "type": "action",
+        "description": "Click Save button to persist changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saved\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Generate schedule for the current month (mode: all) and apply to calendar",
+    "description": "Verifies a user can run the solver for the selected month in 'all slots' mode and see the generated shifts applied on the calendar.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"All slots\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Generated schedule\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Apply to calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Apply to calendar\""
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Generate schedule for the current month (mode: all) and save results",
+    "description": "Verifies a user can generate a schedule and save it so the calendar reflects saved generated shifts.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"All slots\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Save generated schedule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save generated schedule\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Saved\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Generate schedule using partial mode and apply to calendar",
+    "description": "Verifies a user can run the solver in 'partial' mode and apply the generated result to update the calendar.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Partial\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Generated schedule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Apply to calendar\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "Cancel out of the solver dialog without generating",
+    "description": "Verifies the user can open the solver UI and close it without generating or applying any schedule.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Solve mode\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Press \"Escape\" key"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Solver failure shows an error message and guidance to adjust rules",
+    "description": "Verifies that when the solver fails, the UI shows a solver error message and suggests adjusting rules/constraints.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"All slots\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"solver failure\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"adjust\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"rules\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "After solver failure, user can navigate to Settings to adjust rules",
+    "description": "Verifies the error state does not block the user from going to Settings to adjust constraints after a solver failure.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"solver\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Settings\" in the app navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/settings\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Rules\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Generated preview is visible before applying or saving",
+    "description": "Verifies that after generating, the UI presents a preview state and does not immediately apply changes until the user confirms apply/save.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Monthly calendar\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"All slots\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Preview\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Apply to calendar\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Save generated schedule\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Re-run solver to regenerate a different preview without saving",
+    "description": "Verifies the user can run the solver again from the solver UI to regenerate the preview before choosing to apply/save.",
+    "category": "Auto-Generate Schedule (Solver)",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click the Solve/Generate button"
+      },
+      {
+        "type": "action",
+        "description": "Select \"All slots\" from the solve mode options"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Generated schedule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Generate\" to run the solver"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Generated schedule\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Smart Import modal opens from Calendar dashboard",
+    "description": "Verifies the Smart Import entry point is available on the calendar and opens the Smart Import modal.",
+    "category": "Smart Import (AI Image Import)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Smart Import\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Smart Import\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Smart Import\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Upload\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Apply\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Smart Import shows ready state when Gemini is available",
+    "description": "Verifies the UI indicates Smart Import is ready when Gemini status is available.",
+    "category": "Smart Import (AI Image Import)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Smart Import\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Smart Import\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"ready\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Upload\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Apply\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC026",
+    "title": "Smart Import blocks processing when no image is provided",
+    "description": "Verifies attempting to run Smart Import without providing an image results in a visible validation/error message and no shifts are applied.",
+    "category": "Smart Import (AI Image Import)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Smart Import\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Smart Import\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Apply\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"image\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC027",
+    "title": "Gemini unavailable: Smart Import shows explanation and disables action",
+    "description": "Verifies when Gemini is unavailable (or API key missing), the UI shows an explanation and prevents Smart Import from running.",
+    "category": "Smart Import (AI Image Import)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Smart Import\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Gemini\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"missing\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"disabled\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Apply\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC028",
+    "title": "Open Schedule History modal from the calendar dashboard",
+    "description": "Verifies the History modal can be opened from the main calendar dashboard.",
+    "category": "Schedule History / Versions",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"ShiftPlanner\""
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"History\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"History modal\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC029",
+    "title": "Save current schedule as a new version and see it in the versions list",
+    "description": "Verifies saving a new version adds an entry to the history list with the provided name.",
+    "category": "Schedule History / Versions",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save current schedule as a new version\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Mar 2026 snapshot\" into the version name field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Mar 2026 snapshot\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Mar 2026\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC030",
+    "title": "Saved version entry shows a visible timestamp in the list",
+    "description": "Verifies each saved version displays a timestamp in the history list for traceability.",
+    "category": "Schedule History / Versions",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"timestamp\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Version timestamp\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the versions list area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Versions list\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC031",
+    "title": "Restore a previous version from the history list",
+    "description": "Verifies selecting a version triggers a restore flow and the UI reflects that the version was restored.",
+    "category": "Schedule History / Versions",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save current schedule as a new version\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Restore test snapshot\" into the version name field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save\""
+      },
+      {
+        "type": "action",
+        "description": "Click the version named \"Restore test snapshot\" to restore it"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Restored\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC032",
+    "title": "Cancel out of history modal without restoring a version",
+    "description": "Verifies the user can close the History modal without making changes.",
+    "category": "Schedule History / Versions",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"History modal\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Close\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"History modal\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC033",
+    "title": "Attempt to save a version with an empty name shows validation error",
+    "description": "Verifies the UI prevents saving a version when required fields are missing and surfaces an error message.",
+    "category": "Schedule History / Versions",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save current schedule as a new version\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Name is required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Version name field\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC034",
+    "title": "History list remains accessible after saving a version (no page break)",
+    "description": "Verifies that after saving a version, the History modal remains usable and the list is still visible.",
+    "category": "Schedule History / Versions",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the History button to open the history modal"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save current schedule as a new version\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Post-save usability\" into the version name field"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Save\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Versions list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Post-save usability\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC035",
+    "title": "Open the Violation Panel from the calendar dashboard",
+    "description": "Verifies the user can open the Violation Panel from the main calendar dashboard.",
+    "category": "Violation Panel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"ShiftPlanner\""
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Violations\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC036",
+    "title": "Close the Violation Panel using the Violations toggle",
+    "description": "Verifies the user can close the Violation Panel after opening it.",
+    "category": "Violation Panel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC037",
+    "title": "Violation list renders with rule and severity indicators",
+    "description": "Verifies violations (when present) are shown as a list with rule name and severity visible.",
+    "category": "Violation Panel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Severity\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Rule\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"violations list\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC038",
+    "title": "Clicking a violation highlights the offending day in the calendar",
+    "description": "Verifies selecting a violation focuses/highlights the day referenced by that violation.",
+    "category": "Violation Panel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"violations list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the first violation in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"highlighted day\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"2026-03\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC039",
+    "title": "Selecting different violations updates the highlighted day",
+    "description": "Verifies clicking a second violation changes the highlighted day, indicating the locator updates correctly.",
+    "category": "Violation Panel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"violations list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the first violation in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"highlighted day\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click a different violation in the list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"highlighted day\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC040",
+    "title": "No violations state is shown when there are no results",
+    "description": "Verifies the panel shows a clear empty state when there are no violations to display.",
+    "category": "Violation Panel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No violations\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"violations list\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC041",
+    "title": "Invalid month format results in no violations shown and an error message",
+    "description": "Verifies that when the violations request fails due to invalid month input, the UI shows no violations and displays a helpful error.",
+    "category": "Violation Panel",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Violation Panel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026/03\" into the \"Month\" field"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid month\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No violations\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC042",
+    "title": "Correcting an invalid month input updates violations list successfully",
+    "description": "Verifies the user can correct the month input after an error and see violations update accordingly.",
+    "category": "Violation Panel",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Violations\" button"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026/03\" into the \"Month\" field"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid month\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2026-03\" into the \"Month\" field"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"violations list\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC043",
+    "title": "Add a new person with basic details and save",
+    "description": "Verifies a user can add a new team member with name, color, and call tag and see them in the list.",
+    "category": "Personnel Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Personnel\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Alex\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Select a color from the color selector"
+      },
+      {
+        "type": "action",
+        "description": "Select call tag \"1st\""
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Alex\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC044",
+    "title": "Add a new person with targets and unavailable dates",
+    "description": "Verifies a user can set target shift counts and mark unavailable dates before saving a person.",
+    "category": "Personnel Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Nina\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"10\" into the total target shifts field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"2\" into the holiday target shifts field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"8\" into the weekday target shifts field"
+      },
+      {
+        "type": "action",
+        "description": "Mark unavailable dates on the mini calendar"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the unavailable date indicator is visible on the mini calendar"
+      }
+    ]
+  },
+  {
+    "id": "TC045",
+    "title": "Cancel adding a person discards changes",
+    "description": "Verifies clicking Cancel closes the add form and does not create a new person.",
+    "category": "Personnel Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Temp Person\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Select a color from the color selector"
+      },
+      {
+        "type": "action",
+        "description": "Click Cancel to discard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add Person button\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Temp Person\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC046",
+    "title": "Edit an existing person’s name and save",
+    "description": "Verifies a user can edit a person card and the updated name is shown after saving.",
+    "category": "Personnel Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Jordan\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "action",
+        "description": "Click Edit icon on a person card to edit them"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Jordan K\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Jordan K\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC047",
+    "title": "Edit a person’s call tags and targets",
+    "description": "Verifies a user can update call tag assignment and target shift counts for an existing person.",
+    "category": "Personnel Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Sam\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "action",
+        "description": "Click Edit icon on a person card to edit them"
+      },
+      {
+        "type": "action",
+        "description": "Select call tag \"2nd\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"12\" into the total target shifts field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Sam\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC048",
+    "title": "Delete a person removes them from the list",
+    "description": "Verifies a user can delete a person and the person no longer appears in the personnel list.",
+    "category": "Personnel Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Delete Me\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Delete Me\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click Delete icon to remove a person"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Delete Me\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC049",
+    "title": "Block creating a duplicate person and show conflict error",
+    "description": "Verifies the UI prevents creating a duplicate person and displays a visible conflict/error message.",
+    "category": "Personnel Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"DupUser\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Type \"DupUser\" into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"person exists\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC050",
+    "title": "Validation: attempt to save with missing required name",
+    "description": "Verifies the add form blocks saving when required fields (name) are missing and shows a visible validation message.",
+    "category": "Personnel Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /team"
+      },
+      {
+        "type": "action",
+        "description": "Click Add Person button to open the add form"
+      },
+      {
+        "type": "action",
+        "description": "Click Save to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Name\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add Person form\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC051",
+    "title": "Create a new scheduling rule and see it listed",
+    "description": "Verifies a user can create a new constraint rule from Settings and it appears in the rules list.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Settings\""
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"New Rule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"<= 3\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC052",
+    "title": "Cancel out of new rule creation without saving",
+    "description": "Verifies leaving the new rule form without saving does not add the rule to the list.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"New Rule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Press Escape"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"New Rule\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC053",
+    "title": "Validation: Attempt to save a rule with missing required fields",
+    "description": "Verifies the UI prevents saving when required fields (such as name/value) are missing and shows a visible prompt.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"New Rule\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Save Rule\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC054",
+    "title": "Validation: Reject invalid condition/value entry and prompt correction",
+    "description": "Verifies the UI rejects an invalid condition/value combination and prompts the user to correct the rule.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"invalid constraint\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC055",
+    "title": "Edit an existing rule and verify updated values are shown",
+    "description": "Verifies a user can edit a rule and see the updated condition/value reflected in the list.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "action",
+        "description": "Click Edit icon on a rule to modify it"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"<= 4\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC056",
+    "title": "Delete a rule and verify it is removed from the list",
+    "description": "Verifies a user can delete an existing rule and it no longer appears in the UI.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click Delete icon to remove a rule"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC057",
+    "title": "Rules persist after page refresh (state reload)",
+    "description": "Verifies that a saved rule still appears after reloading the Settings page (reflecting a state reload).",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC058",
+    "title": "Create two distinct rules and verify both are listed",
+    "description": "Verifies multiple constraint rules can be created and displayed simultaneously without overwriting each other.",
+    "category": "Scheduling Rules / Constraints",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "action",
+        "description": "Click New Rule button to open constraint form"
+      },
+      {
+        "type": "action",
+        "description": "Enter rule name, select target tag, choose condition, set value"
+      },
+      {
+        "type": "action",
+        "description": "Click Save Rule to persist"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"MaxConsec2\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC059",
+    "title": "View Thai holidays list on Settings page",
+    "description": "Verifies that the Settings page displays a visible Thai holidays section/list after loading.",
+    "category": "Thai Holidays Display",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page title contains \"Settings\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Holidays\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Reload\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC060",
+    "title": "Reload holiday data successfully updates the list view",
+    "description": "Verifies that clicking Reload refreshes holiday data and the holidays list remains visible after refresh.",
+    "category": "Thai Holidays Display",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Holidays\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Reload\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Reload\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC061",
+    "title": "Holiday dates appear highlighted on the monthly calendar after viewing Settings",
+    "description": "Verifies that holidays influence the calendar UI by showing a visible holiday highlight/marker in the main calendar after visiting Settings.",
+    "category": "Thai Holidays Display",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Calendar\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday highlight\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC062",
+    "title": "Holiday name is visible in Settings list entries",
+    "description": "Verifies that each holiday entry shows a readable holiday name (not just a date).",
+    "category": "Thai Holidays Display",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /settings"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday name\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"holiday date\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC063",
+    "title": "Load Cumulative dashboard and display shift counts table",
+    "description": "Verifies the cumulative dashboard loads successfully and shows the personnel shift counts table.",
+    "category": "Cumulative Shift Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Cumulative\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"table of personnel with monthly shift counts\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Expand row control\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC064",
+    "title": "View deficit/surplus badges for personnel in cumulative table",
+    "description": "Verifies deficit/surplus indicators are visible for personnel in the cumulative view.",
+    "category": "Cumulative Shift Tracking",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"table of personnel with monthly shift counts\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"deficit/surplus badges per person\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to \"deficit/surplus badges per person\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"deficit/surplus badges per person\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC065",
+    "title": "Expand a person row to view month-by-month breakdown",
+    "description": "Verifies expanding a row reveals the month-by-month breakdown details for a person.",
+    "category": "Cumulative Shift Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"table of personnel with monthly shift counts\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Expand\" for the first personnel row"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"month-by-month breakdown\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Expand\" for the first personnel row"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"month-by-month breakdown\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC066",
+    "title": "Select a month to finalize and verify selection is reflected in UI",
+    "description": "Verifies a user can select a month to finalize and the UI reflects the chosen month.",
+    "category": "Cumulative Shift Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Select a month to finalize\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"2026-02\" from dropdown \"Month to finalize\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"2026-02\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Finalize Month\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC067",
+    "title": "Attempt to finalize without selecting a month shows validation feedback",
+    "description": "Verifies the UI prevents finalization when no month is selected and shows a clear validation message.",
+    "category": "Cumulative Shift Tracking",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to \"/cumulative\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Finalize Month\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Finalize Month\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Select a month\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Month to finalize\" is visible"
+      }
+    ]
+  }
+]

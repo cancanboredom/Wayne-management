@@ -1,0 +1,205 @@
+version: "2"
+type: frontend
+tech_stack:
+  - language: TypeScript
+  - framework: React 19 + Vite + Express
+  - ui_library: Tailwind CSS v4 + Lucide React
+  - other: React Router v7, Zustand, date-fns, GSAP, Firebase, better-sqlite3
+
+routes:
+  - path: /
+    file: src/features/calendar/CalendarDashboard.tsx
+    auth_required: false
+    description: Main monthly shift schedule calendar dashboard
+  - path: /team
+    file: src/features/personnel/PersonnelManager.tsx
+    auth_required: false
+    description: Personnel management - add, edit, delete team members and their shift preferences
+  - path: /settings
+    file: src/features/rules/SettingsRules.tsx
+    auth_required: false
+    description: Workspace configuration - custom tags, scheduling rules/constraints, and Thai holidays
+  - path: /changelog
+    file: src/features/changelog/Changelog.tsx
+    auth_required: false
+    description: Application changelog page
+  - path: /cumulative
+    file: src/features/cumulative/CumulativeDashboard.tsx
+    auth_required: false
+    description: Cumulative shift tracking dashboard across multiple months, synced with Firebase
+
+features:
+  - name: Monthly Calendar View
+    description: View and navigate a monthly shift schedule calendar showing assigned personnel per day/slot
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+    entry_route: /
+    user_interactions:
+      - Click left/right arrows to navigate months
+      - View shift slots (1A, 1B, 2nd Call, 3rd Call) per calendar day
+      - Click a day cell to open shift assignment panel
+      - Toggle between calendar and list view
+    api_calls:
+      - method: GET
+        endpoint: /api/state
+    auth_required: false
+
+  - name: Shift Assignment
+    description: Manually assign or clear personnel to shift slots (1A, 1B, 2, 3) for each day
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+    entry_route: /
+    user_interactions:
+      - Click on a calendar day to select it
+      - Search for a person by name in the assignment panel
+      - Click a person to assign them to a slot
+      - Click trash icon to remove an assignment
+      - Click Save button to persist changes
+    api_calls:
+      - method: POST
+        endpoint: /api/shifts
+      - method: POST
+        endpoint: /api/highlights
+    auth_required: false
+
+  - name: Auto-Generate Schedule (Solver)
+    description: Automatically generate an optimized shift schedule for the selected month using a constraint solver
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+      - src/lib/shiftplan/solver.ts
+    entry_route: /
+    user_interactions:
+      - Click the Solve/Generate button
+      - Select solve mode (all slots or partial)
+      - View generated schedule applied to the calendar
+      - Save generated schedule
+    api_calls:
+      - method: POST
+        endpoint: /api/solve
+    auth_required: false
+
+  - name: Smart Import (AI Image Import)
+    description: Upload a schedule image and use Gemini AI to extract shift assignments automatically
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+    entry_route: /
+    user_interactions:
+      - Click Smart Import button to open modal
+      - Upload or paste an image of a schedule
+      - Review extracted shifts from AI
+      - Apply extracted shifts to the calendar
+    api_calls:
+      - method: GET
+        endpoint: /api/gemini-status
+      - method: POST
+        endpoint: /api/smart-import
+    auth_required: false
+
+  - name: Schedule History / Versions
+    description: Save and restore historical versions of the shift schedule
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+    entry_route: /
+    user_interactions:
+      - Click the History button to open the history modal
+      - View list of saved versions with timestamps
+      - Click a version to restore it
+      - Save current schedule as a new version
+    api_calls:
+      - method: POST
+        endpoint: /api/versions
+      - method: GET
+        endpoint: /api/state
+    auth_required: false
+
+  - name: Violation Panel
+    description: Real-time display of scheduling constraint violations for the current month
+    files:
+      - src/features/calendar/CalendarDashboard.tsx
+    entry_route: /
+    user_interactions:
+      - Click Violations button to open/close the panel
+      - View list of rule violations with severity
+      - Click a violation to highlight the problematic day
+    api_calls:
+      - method: POST
+        endpoint: /api/violations
+    auth_required: false
+
+  - name: Personnel Management
+    description: Add, edit, and delete team members with their shift preferences, tags, and unavailable dates
+    files:
+      - src/features/personnel/PersonnelManager.tsx
+    entry_route: /team
+    user_interactions:
+      - Click Add Person button to open the add form
+      - Fill in name, select color, assign call tags (1st/2nd/3rd)
+      - Set target shift counts (total, holiday, weekday)
+      - Mark unavailable dates on the mini calendar
+      - Click Save to persist, or Cancel to discard
+      - Click Edit icon on a person card to edit them
+      - Click Delete icon to remove a person
+    api_calls:
+      - method: GET
+        endpoint: /api/state
+      - method: POST
+        endpoint: /api/people
+    auth_required: false
+
+  - name: Scheduling Rules / Constraints
+    description: Define scheduling constraints applied to tags during auto-generation
+    files:
+      - src/features/rules/SettingsRules.tsx
+    entry_route: /settings
+    user_interactions:
+      - Click New Rule button to open constraint form
+      - Enter rule name, select target tag, choose condition, set value
+      - Click Save Rule to persist
+      - Click Edit icon on a rule to modify it
+      - Click Delete icon to remove a rule
+    api_calls:
+      - method: POST
+        endpoint: /api/constraints
+      - method: GET
+        endpoint: /api/state
+    auth_required: false
+
+  - name: Thai Holidays Display
+    description: View auto-fetched Thai public holidays used to highlight days in the calendar
+    files:
+      - src/features/rules/SettingsRules.tsx
+    entry_route: /settings
+    user_interactions:
+      - View list of holidays on the settings page
+      - Click Reload to refresh holiday data
+    api_calls:
+      - method: GET
+        endpoint: /api/holidays
+    auth_required: false
+
+  - name: Cumulative Shift Tracking
+    description: View and track cumulative shift history per person across the last 6 months, with Firebase sync
+    files:
+      - src/features/cumulative/CumulativeDashboard.tsx
+    entry_route: /cumulative
+    user_interactions:
+      - View table of personnel with monthly shift counts
+      - See deficit/surplus badges per person
+      - Select a month to finalize
+      - Click Finalize Month button to save month data to Firebase
+      - Expand a row to see month-by-month breakdown
+    api_calls:
+      - method: GET
+        endpoint: /api/state
+    auth_required: false
+
+known_limitations:
+  - issue: Smart Import requires a Gemini API key configured in .env; without it the feature returns a 400 error
+    location: server.ts
+    impact: Smart Import will show an error if GEMINI_API_KEY is not set
+  - issue: Cumulative data sync requires Firebase to be configured
+    location: src/lib/firebase.ts
+    impact: Cloud sync is disabled when Firebase is not configured
+  - issue: No authentication system; any user can toggle editor/guest mode via UI
+    location: src/lib/store/useUIStore.ts
+    impact: No real access control

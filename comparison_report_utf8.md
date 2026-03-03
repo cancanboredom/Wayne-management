@@ -1,0 +1,36 @@
+﻿| File | Status |
+|---|---|
+| src/App.tsx | Modified |
+| src/index.css | Modified |
+| src/main.tsx | Modified |
+| CHANGELOG.md | Modified |
+| package.json | Modified |
+| Preview App.bat | Modified |
+| README.md | Modified |
+| server.ts | Modified |
+| tsconfig.json | Modified |
+| Update from GitHub.bat | Modified |
+| Upload to GitHub.bat | Modified |
+| .agent/workflows/antigravity-motion.md | Only in Mine (New) |
+| src/assets/fonts/LINESeedSansTH_W_Bd.woff2 | Only in Mine (New) |
+| src/assets/fonts/LINESeedSansTH_W_He.woff2 | Only in Mine (New) |
+| src/assets/fonts/LINESeedSansTH_W_Rg.woff2 | Only in Mine (New) |
+| src/assets/fonts/LINESeedSansTH_W_Th.woff2 | Only in Mine (New) |
+| src/assets/fonts/LINESeedSansTH_W_XBd.woff2 | Only in Mine (New) |
+| src/components/animations/GsapMagnetic.tsx | Only in Mine (New) |
+| src/components/animations/GsapScrollReveal.tsx | Only in Mine (New) |
+| src/components/animations/GsapStaggerText.tsx | Only in Mine (New) |
+| src/components/AntigravityWrapper.tsx | Only in Mine (New) |
+| src/lib/shiftplan/constants.ts | Only in Mine (New) |
+| src/lib/shiftplan/dateUtils.ts | Only in Mine (New) |
+| src/lib/shiftplan/solver.ts | Only in Mine (New) |
+| src/lib/shiftplan/types.ts | Only in Mine (New) |
+| src/lib/firebase.ts | Only in Mine (New) |
+| src/lib/gsap-init.ts | Only in Mine (New) |
+| src/providers/SmoothScrollProvider.tsx | Only in Mine (New) |
+| src/styles/motion-tokens.ts | Only in Mine (New) |
+| .firebaserc | Only in Mine (New) |
+| Deploy to Firebase.bat | Only in Mine (New) |
+| firebase.json | Only in Mine (New) |
+| FIREBASE_SETUP_GUIDE.md | Only in Mine (New) |
+| FREE_USAGE_GUIDE.md | Only in Mine (New) |

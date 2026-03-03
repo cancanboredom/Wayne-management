@@ -22,3 +22,5 @@ Oat_version_21_12/
 Oat version 18.33/
 LEGACY/
 *.zip
+.vercel
+.env*.local

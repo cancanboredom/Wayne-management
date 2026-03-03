@@ -169,6 +169,18 @@ export function validateWorkspaceSchedulingConfig(config: WorkspaceSchedulingCon
         errors.push(`Subset "${subset.id}" references unknown tag "${tagId}".`);
       }
     }
+    if (subset.mutuallyExclusiveWith && !tagIds.has(subset.mutuallyExclusiveWith)) {
+      errors.push(`Subset "${subset.id}" references unknown mutuallyExclusiveWith tag "${subset.mutuallyExclusiveWith}".`);
+    }
+    if (subset.pullTag && !tagIds.has(subset.pullTag)) {
+      errors.push(`Subset "${subset.id}" references unknown pullTag "${subset.pullTag}".`);
+    }
+    if (subset.maxShifts != null && (!isFiniteNumber(subset.maxShifts) || subset.maxShifts < 0)) {
+      errors.push(`Subset "${subset.id}" maxShifts must be >= 0.`);
+    }
+    if (subset.exactShifts != null && (!isFiniteNumber(subset.exactShifts) || subset.exactShifts < 0)) {
+      errors.push(`Subset "${subset.id}" exactShifts must be >= 0.`);
+    }
     for (const level of subset.levelScopes || []) {
       if (!isValidLevelToken(level)) {
         errors.push(`Subset "${subset.id}" has malformed level token "${level}".`);

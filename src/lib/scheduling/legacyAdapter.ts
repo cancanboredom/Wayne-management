@@ -322,7 +322,12 @@ function buildEligibilityScopeMap(config: WorkspaceSchedulingConfig | null | und
   return out;
 }
 
-function mapTagToSubsetTag(tag: WorkspaceTagDefinition, index: number, scopes: Set<string>): SubsetTag {
+function mapTagToSubsetTag(
+  tag: WorkspaceTagDefinition,
+  index: number,
+  scopes: Set<string>,
+  subsetDef?: WorkspaceSchedulingConfig['subsets'][number]
+): SubsetTag {
   return {
     id: tag.id,
     name: tag.label,
@@ -334,7 +339,11 @@ function mapTagToSubsetTag(tag: WorkspaceTagDefinition, index: number, scopes: S
     eligible1st: scopes.has('1A') || scopes.has('1B') || scopes.has('1'),
     eligible2nd: scopes.has('2'),
     eligible3rd: scopes.has('3'),
-    balanceGroup: true,
+    balanceGroup: subsetDef?.balanceGroup ?? true,
+    maxShifts: subsetDef?.maxShifts,
+    exactShifts: subsetDef?.exactShifts,
+    mutuallyExclusiveWith: subsetDef?.mutuallyExclusiveWith,
+    pullTag: subsetDef?.pullTag,
   };
 }
 
@@ -443,9 +452,10 @@ export function toSubsetTagsFromWorkspaceConfig(config?: WorkspaceSchedulingConf
   const activeTags = (config?.tags || []).filter((t) => t.active !== false);
   if (!activeTags.length) return DEFAULT_SUBSETS;
   const scopeByTag = buildEligibilityScopeMap(config);
+  const subsetById = new Map((config?.subsets || []).map((s) => [s.id, s]));
   return activeTags.map((tag, index) => {
     const scopes = scopeByTag.get(tag.id) || new Set<string>();
-    return mapTagToSubsetTag(tag, index, scopes);
+    return mapTagToSubsetTag(tag, index, scopes, subsetById.get(tag.id));
   });
 }
 

@@ -341,6 +341,11 @@ function buildDefaultSchedulingConfig(workspaceId: string, legacyConstraints: Wo
     ],
     active: true,
     priority: s.summaryOrder ?? idx + 1,
+    mutuallyExclusiveWith: s.mutuallyExclusiveWith,
+    pullTag: s.pullTag,
+    maxShifts: s.maxShifts,
+    exactShifts: s.exactShifts,
+    balanceGroup: s.balanceGroup,
   }));
   const ruleTemplates = [
     {
@@ -373,6 +378,39 @@ function buildDefaultSchedulingConfig(workspaceId: string, legacyConstraints: Wo
   };
 }
 
+function mergeSubsetLegacyKnobs(config: WorkspaceSchedulingConfig): WorkspaceSchedulingConfig {
+  const defaultsById = new Map(DEFAULT_SUBSETS.map((s) => [s.id, s]));
+  let changed = false;
+  const subsets = (config.subsets || []).map((subset) => {
+    const base = defaultsById.get(subset.id);
+    if (!base) return subset;
+    const next = { ...subset };
+    if (next.mutuallyExclusiveWith == null && base.mutuallyExclusiveWith != null) {
+      next.mutuallyExclusiveWith = base.mutuallyExclusiveWith;
+      changed = true;
+    }
+    if (next.pullTag == null && base.pullTag != null) {
+      next.pullTag = base.pullTag;
+      changed = true;
+    }
+    if (next.maxShifts == null && base.maxShifts != null) {
+      next.maxShifts = base.maxShifts;
+      changed = true;
+    }
+    if (next.exactShifts == null && base.exactShifts != null) {
+      next.exactShifts = base.exactShifts;
+      changed = true;
+    }
+    if (next.balanceGroup == null && base.balanceGroup != null) {
+      next.balanceGroup = base.balanceGroup;
+      changed = true;
+    }
+    return next;
+  });
+  if (!changed) return config;
+  return { ...config, subsets, updatedAt: Date.now() };
+}
+
 function parseSchedulingConfigJson(value: unknown): WorkspaceSchedulingConfig | null {
   if (typeof value !== 'string' || !value.trim()) return null;
   try {
@@ -389,12 +427,12 @@ export function getWorkspaceSchedulingConfig(db: Database, workspaceId: string):
   if (!row) return null;
   const parsed = parseSchedulingConfigJson(row.configJson);
   if (!parsed) return null;
-  return {
+  return mergeSubsetLegacyKnobs({
     ...parsed,
     version: row.version || parsed.version || 1,
     fairnessCohorts: parsed.fairnessCohorts?.length ? parsed.fairnessCohorts : defaultFairnessCohorts(),
     updatedAt: row.updatedAt || parsed.updatedAt || Date.now(),
-  };
+  });
 }
 
 export function saveWorkspaceSchedulingConfig(
@@ -427,10 +465,15 @@ export function saveWorkspaceSchedulingConfig(
 export function ensureWorkspaceSchedulingConfig(db: Database, workspaceId: string): WorkspaceSchedulingConfig {
   const existing = getWorkspaceSchedulingConfig(db, workspaceId);
   if (existing) {
-    if (!existing.fairnessCohorts || existing.fairnessCohorts.length === 0) {
-      return saveWorkspaceSchedulingConfig(db, workspaceId, { ...existing, fairnessCohorts: defaultFairnessCohorts() });
+    const needsCohorts = !existing.fairnessCohorts || existing.fairnessCohorts.length === 0;
+    const upgraded = mergeSubsetLegacyKnobs(existing);
+    if (needsCohorts) {
+      return saveWorkspaceSchedulingConfig(db, workspaceId, { ...upgraded, fairnessCohorts: defaultFairnessCohorts() });
     }
-    return existing;
+    if (upgraded !== existing) {
+      return saveWorkspaceSchedulingConfig(db, workspaceId, upgraded);
+    }
+    return upgraded;
   }
   const legacyConstraints = getWorkspaceConstraints(db, workspaceId);
   const defaults = buildDefaultSchedulingConfig(workspaceId, legacyConstraints);

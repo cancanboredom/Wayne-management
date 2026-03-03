@@ -65,6 +65,11 @@ export interface WorkspaceSubsetDefinition {
   levelScopes: string[];
   active: boolean;
   priority?: number;
+  mutuallyExclusiveWith?: string;
+  pullTag?: string;
+  maxShifts?: number;
+  exactShifts?: number;
+  balanceGroup?: boolean;
 }
 
 export interface WorkspaceRuleTemplate {

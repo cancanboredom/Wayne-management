@@ -49,6 +49,11 @@ function buildFallbackSubsets(): WorkspaceSubsetDefinition[] {
         ],
         active: true,
         priority: s.summaryOrder ?? idx + 1,
+        mutuallyExclusiveWith: s.mutuallyExclusiveWith,
+        pullTag: s.pullTag,
+        maxShifts: s.maxShifts,
+        exactShifts: s.exactShifts,
+        balanceGroup: s.balanceGroup,
     }));
 }
 
